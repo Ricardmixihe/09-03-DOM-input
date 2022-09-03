@@ -7,9 +7,30 @@
     <title>Document</title>
 </head>
 <body>
+    <ul> 
+        <li>列表1</li>
+        <li>列表2</li>
+        <li>列表3</li>
+        <li>列表4</li>
+        <li>列表5</li>
+    </ul>
     <script>
         // 事件委托：
         //事件委托其实就是注册事件的一种简写形式
+
+        //  1.点击每一个li标签，输出li标签中文字内容
+        // a）原生写法
+            // let lis =  document.querySelectorAll('li');//接收的参数是一个 CSS 选择符。生成一个伪数组
+            // for (let i = 0; i < lis.length; i++) {
+            //     lis[i]. addEventListener('click',function () {
+            //         console.log( this.innerHTML);
+            //     })//绑定事件
+            // }
+        // b）使用委托写法
+                let ul = document.querySelector('ul');//返回文档中匹配指定 CSS选择器的一个元素。!!注意仅仅返回匹配指定选择器的第一个元素
+                ul. addEventListener('click',function (e) {
+                    console.log(e.target.innerHTML);
+                })//绑定事件
     </script>
 </body>
 </html>
