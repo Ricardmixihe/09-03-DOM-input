@@ -5,19 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body{
+            height: 20000px;
+        }
+    </style>
 </head>
 <body>
     <script>
         // 1.滚动事件：当页面中出现滚动条且拖拽滚动条页面发生滚动的时候执行 
         // 2,滚动事件名字：scro11 
         // 3.滚动事件给window注册
-        window. addEventListener('scroll',function () {
-            console.log(123);
-        })//绑定事件
+        // window. addEventListener('scroll',function () {
+        //     console.log(123);
+        // })//绑定事件
         // 4.应用场景：拖拽滚动条页面出现固定定位导航
 
 
         // 5.如何获取页面滚动的距离？
+        window. addEventListener('scroll',function () {
+            console.log(document.documentElement.scrollTop);
+        })//绑定事件
     </script>
 </body>
 </html>
