@@ -5,13 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
 </head>
 <body>
+    <input type="button" value="按钮">
     <script>
-        //1,加载事件：1oad 
-        // 2.加载事件：当页面中所有的标签全部加载完成后，才执行1oad事件 
+        //1,加载事件：load 
+        // 2.加载事件：当页面中所有的标签全部加载完成后，才执行load事件 
         // 3. 应用场景： 
-        // a)如果将获取标签的代码写到html结构的前面，则必须使用1oad事件
+            // a)如果将获取标签的代码写到html结构的前面，则必须使用load事件
+        // 4.为什么将js代码写到html结构前面的时候，获取不到标签？ 
+            // 原因：s的执行顺序，按照从上向下依次执行
+            // 5.如何解决以止问题：将js代码写到tml结构前面的时候，也可以正常执行？ 
+                // 给winodw注册load事件，将所有代码放入load事件中即可
     </script>
 </body>
 </html>
