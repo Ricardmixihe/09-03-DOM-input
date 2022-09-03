@@ -93,11 +93,23 @@
       //分析： 
       // 功能1：鼠标进入到对应的标题标签中，则就给对应的标题标签设置样式 
       // 功能2：鼠标进入到对应的标题中，显示对应的内容盒子
+
+      //先获取A标签
       let alinks = document.querySelectorAll('.tab-nav a');//返回文档中匹配指定 CSS选择器的一个元素。!!注意仅仅返回匹配指定选择器的第一个元素
+      // 给每一个a标签注册鼠标进入事件
         for (let i = 0; i < alinks.length; i++) {
+      // 给每一个a标签注册鼠标进入事件
           alinks[i]. addEventListener('mouseenter',function () {
+            // 利用排他思想现将active的类名移除
             document.querySelector('.tab-nav .active').classList.remove('active');
+            // 给当前标签添加active类名
             this.classList.add('active')
+
+            //利用排他思想：先将对应的active类名移除
+            document.querySelector('.tab-content .active').classList.remove('active');//返回文档中匹配指定 CSS选择器的一个元素。!!注意仅仅返回匹配指定选择器的第一个元素
+            //根据当前标题选中对应的内容盒子
+            document.querySelector(`.item:nth-child(${i+1})`).classList.add('active');//返回文档中匹配指定 CSS选择器的一个元素。!!注意仅仅返回匹配指定选择器的第一个元素
+
 
           })//绑定事件
         }
