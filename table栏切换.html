@@ -90,8 +90,17 @@
     </div>
   </div>
   <script>
-    
-  
+      //分析： 
+      // 功能1：鼠标进入到对应的标题标签中，则就给对应的标题标签设置样式 
+      // 功能2：鼠标进入到对应的标题中，显示对应的内容盒子
+      let alinks = document.querySelectorAll('.tab-nav a');//返回文档中匹配指定 CSS选择器的一个元素。!!注意仅仅返回匹配指定选择器的第一个元素
+        for (let i = 0; i < alinks.length; i++) {
+          alinks[i]. addEventListener('mouseenter',function () {
+            document.querySelector('.tab-nav .active').classList.remove('active');
+            this.classList.add('active')
+
+          })//绑定事件
+        }
   </script>
 </body>
 </html>
