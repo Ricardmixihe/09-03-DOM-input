@@ -7,10 +7,31 @@
     <title>Document</title>
 </head>
 <body>
+    <input type="text" value="按钮">
     <script>
+        //this关键字（环境对象）：this关键字很重要，以后写代码经常用
+        //口诀：谁调用this就是谁（this就指向谁）
+
+
+        //要求：点击按钮的时候，将按钮的文字颜色改变为红色
+        // let btn = document.querySelector('input');//返回文档中匹配指定 CSS选择器的一个元素。!!注意仅仅返回匹配指定选择器的第一个元素
+        //     btn. addEventListener('click',function () {
+        //         btn.style.color = 'pink'
+        //     })//绑定事件
+
+
+        // this展示
+        let btn = document.querySelector('input');//返回文档中匹配指定 CSS选择器的一个元素。!!注意仅仅返回匹配指定选择器的第一个元素
+            btn. addEventListener('click',function () {
+                this.style.color = 'pink'
+            })//绑定事件
 
 
 
+        //this指向的问题：谁调用this就是谁 
+        //在事件中，this指向的就是事件源，只要在事件中操作事件源，则都可以使用this进行替代
+        //在普通函数中，this指向window,因为普通函数完整的写法是window.函数名()
+        //在方法中，this指向方法的调用对象
     </script>
 </body>
 </html>
