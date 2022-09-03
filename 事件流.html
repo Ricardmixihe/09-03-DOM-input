@@ -5,11 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+    </style>
 </head>
 <body>
+    <div>
+        <input type="text" value="按钮">
+    </div>
     <script>
         //事件流
         // 事件流是Js中的一个特征（好比：css特性）
+
+
+        // 事件流分类：
+            // a)事件冒泡
+
+            // b)事件捕获
+
+        // 代码演示事件冒泡
+        // 事件从内部的标签向外传递--事件冒泡
+        // 事件冒泡必须是嵌套结构 才会出现冒泡的效果
+        //因为事件冒泡现象是内部向外传递的，所以阻止事件冒泡的时候必须给内部的事件阻止
+            let btn = document.querySelector('input');//返回文档中匹配指定 CSS选择器的一个元素。!!注意仅仅返回匹配指定选择器的第一个元素
+            let div = document.querySelector('div');//返回文档中匹配指定 CSS选择器的一个元素。!!注意仅仅返回匹配指定选择器的第一个元素
+            btn. addEventListener('click',function (e) {
+                btn.style.color = 'orange'
+                e.stopPropagation()
+            })//绑定事件
+
+            div. addEventListener('click',function () {
+                div.style.backgroundColor = 'pink'
+            })//绑定事件
+        // 如何解决事件冒泡？
+
     </script>
 </body>
 </html>
