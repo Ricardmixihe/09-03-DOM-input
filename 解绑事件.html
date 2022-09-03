@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+    <input type="button" name="" id="" value="按钮">
     <script>
         // 1.解绑事件：
             // a)解绑 on 方式注册的事件
@@ -16,6 +17,14 @@
 
 
         // 2.绑定事件
+            // a)通过事件源.removeEventListener('要被移除的事件类型'，函数名)
+            //注意：如果要移除addEventListener注册的事件，则在注册事件的时候，必须要写成命名函数
+        let btn = document.querySelector('input');//返回文档中匹配指定 CSS选择器的一个元素。!!注意仅仅返回匹配指定选择器的第一个元素
+        function fn() {
+            console.log(123);
+        }
+        btn.addEventListener('click',fn())//绑定事件
+        // btn.removeEventListener('click',fn())
     </script>
 </body>
 </html>
