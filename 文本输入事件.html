@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <span>111</span>
+    <script>
+            // 文本输入事件：当用户输入的时候触发该事件 
+            // input事件 
+            // 注意：输入事件给输入框注册
+            let int = document.querySelector('input');//返回文档中匹配指定 CSS选择器的一个元素。!!注意仅仅返回匹配指定选择器的第一个元素
+            let span = document.querySelector('span');//返回文档中匹配指定 CSS选择器的一个元素。!!注意仅仅返回匹配指定选择器的第一个元素
+
+            int.addEventListener('input',function () {
+                let result = int.value;
+                let num  = result.length;
+                span.innerHTML = `当前输入了${num}个文字`
+            })//绑定事件
+    </script>
+</body>
+</html>
