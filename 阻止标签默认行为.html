@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="1.php">
+        <input type="text" name="uname">
+        <input type="submit" class="btn">
+    </form>
+    <script>
+        // 1.阻止标签的默认行为：a标签 + form标签
+        // 2，以上标签默认行为：跳转页面
+
+        // 表单标签在提交数据时也会发生页面跳转
+
+        let btn = document.querySelector('.btn');//返回文档中匹配指定 CSS选择器的一个元素。!!注意仅仅返回匹配指定选择器的第一个元素
+        btn. addEventListener('click',function (e) {
+            e.preventDefault();
+        })//绑定事件
+    </script>
+</body>
+</html>
