@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        //1.通过事件对象参数获取鼠标位置信息---注册鼠标事件
+
+        //获取鼠标位置信息
+        //事件对象参数.clientX | 事件对象参数.clientY
+        //事件对象参数.offsetX | 事件对象参数.offsetY
+        // 为什么clientX    和  offsetX得到鼠标位置信息不一样？
+
+        // clientX 计算结果是以页面为参照
+        // offsetX   计算结果是以事件源为参照
+
+        let div = document.querySelector('div');//返回文档中匹配指定 CSS选择器的一个元素。!!注意仅仅返回匹配指定选择器的第一个元素
+            div. addEventListener('click',function (e) {
+                console.log(e);
+                
+            })//绑定事件
+    </script>
+</body>
+</html>
