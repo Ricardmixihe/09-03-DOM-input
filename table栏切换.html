@@ -74,11 +74,11 @@
     <div class="tab-nav">
       <h3>每日特价</h3>
       <ul>
-        <li><a class="active" href="javascript:;">精选</a></li>
-        <li><a href="javascript:;">美食</a></li>
-        <li><a href="javascript:;">百货</a></li>
-        <li><a href="javascript:;">个护</a></li>
-        <li><a href="javascript:;">预告</a></li>
+        <li><a class="active" href="javascript:;" data-myindex="0">精选</a></li>
+        <li><a href="javascript:;" data-myindex="1">美食</a></li>
+        <li><a href="javascript:;" data-myindex="2">百货</a></li>
+        <li><a href="javascript:;" data-myindex="3">个护</a></li>
+        <li><a href="javascript:;" data-myindex="4">预告</a></li>
       </ul>
     </div>
     <div class="tab-content">
@@ -93,26 +93,73 @@
       //分析： 
       // 功能1：鼠标进入到对应的标题标签中，则就给对应的标题标签设置样式 
       // 功能2：鼠标进入到对应的标题中，显示对应的内容盒子
+        // 1.先获取父元素ul
+        let ul = document.querySelector('.tab-nav ul');//返回文档中匹配指定 CSS选择器的一个元素。!!注意仅仅返回匹配指定选择器的第一个元素
+        // 2.给父元素注册事件
+        ul. addEventListener('click',function (e) {
+            //3.获取真正的事件源: 事件对象参数.target
+            let btn = e.target;
+            // 4.判断当前标签只能是a标签才可以
+            if (btn.tagName  == 'A') {
+              //5.给当前a标签添加类名
+              document.querySelector('.tab-nav .active').classList.remove('active');
 
-      //先获取A标签
-      let alinks = document.querySelectorAll('.tab-nav a');//返回文档中匹配指定 CSS选择器的一个元素。!!注意仅仅返回匹配指定选择器的第一个元素
-      // 给每一个a标签注册鼠标进入事件
-        for (let i = 0; i < alinks.length; i++) {
-      // 给每一个a标签注册鼠标进入事件
-          alinks[i]. addEventListener('mouseenter',function () {
-            // 利用排他思想现将active的类名移除
-            document.querySelector('.tab-nav .active').classList.remove('active');
-            // 给当前标签添加active类名
-            this.classList.add('active')
-
-            //利用排他思想：先将对应的active类名移除
-            document.querySelector('.tab-content .active').classList.remove('active');//返回文档中匹配指定 CSS选择器的一个元素。!!注意仅仅返回匹配指定选择器的第一个元素
-            //根据当前标题选中对应的内容盒子
-            document.querySelector(`.item:nth-child(${i+1})`).classList.add('active');//返回文档中匹配指定 CSS选择器的一个元素。!!注意仅仅返回匹配指定选择器的第一个元素
+              btn.classList.add('active')
+              
+              //6.获取标签身上自定义属性值：标签对象.dataset.自定义属性名
+              let i = Number(btn.dataset.myindex);
+              document.querySelector('.tab-content .active').classList.remove('active');//返回文档中匹配指定 CSS选择器的一个元素。!!注意仅仅返回匹配指定选择器的第一个元素
+              document.querySelector(`.item:nth-child(${i + 1})`).classList.add('active');//返回文档中匹配指定 CSS选择器的一个元素。!!注意仅仅返回匹配指定选择器的第一个元素
+            
+               
+            }
+        })//绑定事件
 
 
-          })//绑定事件
-        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      // //先获取A标签
+      // let alinks = document.querySelectorAll('.tab-nav a');//返回文档中匹配指定 CSS选择器的一个元素。!!注意仅仅返回匹配指定选择器的第一个元素
+      // // 给每一个a标签注册鼠标进入事件
+      //   for (let i = 0; i < alinks.length; i++) {
+      // // 给每一个a标签注册鼠标进入事件
+      //     alinks[i]. addEventListener('mouseenter',function () {
+      //       // 利用排他思想现将active的类名移除
+      //       document.querySelector('.tab-nav .active').classList.remove('active');
+      //       // 给当前标签添加active类名
+      //       this.classList.add('active')
+
+      //       //利用排他思想：先将对应的active类名移除
+      //       document.querySelector('.tab-content .active').classList.remove('active');//返回文档中匹配指定 CSS选择器的一个元素。!!注意仅仅返回匹配指定选择器的第一个元素
+      //       //根据当前标题选中对应的内容盒子
+      //       document.querySelector(`.item:nth-child(${i+1})`).classList.add('active');//返回文档中匹配指定 CSS选择器的一个元素。!!注意仅仅返回匹配指定选择器的第一个元素
+
+
+      //     })//绑定事件
+      //   }
   </script>
 </body>
 </html>
